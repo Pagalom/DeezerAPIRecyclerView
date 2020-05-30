@@ -33,21 +33,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        showList();
         makeAPICall();
     }
 
-    private void showList() {
+    private void showList(List<Playlist> listPlaylist) {
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
 
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        List<String> input = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
-            input.add("Test" + i);
-        }
-        mAdapter = new ListAdapter(input);
+
+        mAdapter = new ListAdapter(listPlaylist);
         recyclerView.setAdapter(mAdapter);
     }
 
@@ -69,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<ListPlaylist> call, Response<ListPlaylist> response) {
                 if(response.isSuccessful() && response.body()!=null){
                     List<Playlist> listPlaylist= response.body().getData();
-                    Toast.makeText(getApplicationContext(),"API success",Toast.LENGTH_LONG).show();
+                    showList(listPlaylist);
                 }
                 else {
                     showError();
