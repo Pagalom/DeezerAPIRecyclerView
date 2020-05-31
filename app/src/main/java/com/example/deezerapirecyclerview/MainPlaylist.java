@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,6 +32,7 @@ public class MainPlaylist extends AppCompatActivity {
     private Gson gson;
     private String id;
     private String titre;
+    private TextView pTitre;
 
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
@@ -44,6 +46,8 @@ public class MainPlaylist extends AppCompatActivity {
         Intent intent = getIntent();
         this.titre = intent.getStringExtra("Titre");
         this.id = intent.getStringExtra("Id");
+        pTitre = (TextView) findViewById(R.id.txtView);
+        pTitre.setText(titre);
 
         sharedPreferences = getSharedPreferences("AppDeezer", Context.MODE_PRIVATE);
         gson = new GsonBuilder()

@@ -2,6 +2,8 @@ package com.example.deezerapirecyclerview;
 
 import java.util.List;
 
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -32,6 +34,7 @@ public class ListAdapterPlaylist extends RecyclerView.Adapter<ListAdapterPlaylis
             txtHeader = (TextView) v.findViewById(R.id.firstLine);
             txtFooter = (TextView) v.findViewById(R.id.secondLine);
             img = (ImageView) v.findViewById(R.id.icon2);
+            img.setColorFilter(Color.GRAY, PorterDuff.Mode.DARKEN);;
         }
     }
 

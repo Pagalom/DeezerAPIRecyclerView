@@ -9,19 +9,22 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/txtView"
         android:layout_width="match_parent"
-        android:layout_height="106dp"
+        android:layout_height="60dp"
+        android:autoSizeMaxTextSize="100sp"
+        android:autoSizeMinTextSize="12sp"
+        android:autoSizeStepGranularity="2sp"
+        android:autoSizeTextType="uniform"
         android:background="@drawable/gradiant_title"
         android:gravity="center_horizontal"
         android:text="TITLE"
         android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="60sp" />
+        android:textColor="@color/white" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView2"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="55dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
