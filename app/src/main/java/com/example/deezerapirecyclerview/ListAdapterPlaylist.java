@@ -10,10 +10,8 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
-
-    private List<Playlist> values;
-    private OnItemClickListener listener;
+public class ListAdapterPlaylist extends RecyclerView.Adapter<ListAdapterPlaylist.ViewHolder> {
+    private List<Music> values;
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -32,11 +30,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         }
     }
 
-    public interface OnItemClickListener {
-        void onItemClick(Playlist item);
-    }
-
-    public void add(int position, Playlist item) {
+    public void add(int position, Music item) {
         values.add(position, item);
         notifyItemInserted(position);
     }
@@ -47,22 +41,19 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-
-
-    public ListAdapter(List<Playlist> values, OnItemClickListener listener) {
-        this.values = values;
-        this.listener = listener;
+    public ListAdapterPlaylist(List<Music> myDataset, ListAdapter.OnItemClickListener onItemClickListener) {
+        values = myDataset;
     }
 
     // Create new views (invoked by the layout manager)
     @Override
-    public ListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
+    public ListAdapterPlaylist.ViewHolder onCreateViewHolder(ViewGroup parent,
                                                      int viewType) {
         // create a new view
         LayoutInflater inflater = LayoutInflater.from(
                 parent.getContext());
         View v =
-                inflater.inflate(R.layout.row_layout, parent, false);
+                inflater.inflate(R.layout.playlist_layout, parent, false);
         // set the view's size, margins, paddings and layout parameters
         ViewHolder vh = new ViewHolder(v);
         return vh;
@@ -73,16 +64,16 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     public void onBindViewHolder(ViewHolder holder, final int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        final Playlist currentPlaylist = values.get(position);
-        holder.txtHeader.setText(currentPlaylist.getTitle());
+        final Music currentMusic = values.get(position);
+        holder.txtHeader.setText(currentMusic.getTitle());
         holder.txtHeader.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.onItemClick(currentPlaylist);
+                remove(position);
             }
         });
 
-        holder.txtFooter.setText(currentPlaylist.getLink());
+        holder.txtFooter.setText(currentMusic.getAlbum().getTitle()+" by "+currentMusic.getArtist().getName());
     }
 
     // Return the size of your dataset (invoked by the layout manager)
