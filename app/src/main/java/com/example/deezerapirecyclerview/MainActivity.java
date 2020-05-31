@@ -106,16 +106,16 @@ public class MainActivity extends AppCompatActivity {
                 .edit()
                 .putString(Constante.KEY_DEEZER_LIST,jsonString)
                 .apply();
-        Toast.makeText(getApplicationContext(),"Saved list",Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(),"Saved list",Toast.LENGTH_LONG).show();
 
     }
 
     private void showError() {
-        Toast.makeText(getApplicationContext(),"download from cache",Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(),"download from cache",Toast.LENGTH_LONG).show();
         List<Playlist> listPlaylist = getDataFromCache();
         if (listPlaylist != null){
             showList(listPlaylist);
-        } else Toast.makeText(getApplicationContext(),"no cache to download, unable to reach API online",Toast.LENGTH_LONG).show();
+        } //else Toast.makeText(getApplicationContext(),"no cache to download, unable to reach API online",Toast.LENGTH_LONG).show();
     }
 
     private List<Playlist> getDataFromCache() {

@@ -6,9 +6,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.squareup.picasso.Picasso;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
@@ -22,6 +25,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         // each data item is just a string in this case
         public TextView txtHeader;
         public TextView txtFooter;
+        public ImageView img;
         public View layout;
 
         public ViewHolder(View v) {
@@ -29,6 +33,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
             layout = v;
             txtHeader = (TextView) v.findViewById(R.id.firstLine);
             txtFooter = (TextView) v.findViewById(R.id.secondLine);
+            img = (ImageView) v.findViewById(R.id.icon);
         }
     }
 
@@ -75,6 +80,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         // - replace the contents of the view with that element
         final Playlist currentPlaylist = values.get(position);
         holder.txtHeader.setText(currentPlaylist.getTitle());
+        Picasso.get().load(currentPlaylist.getPicture()).into(holder.img);
         holder.txtHeader.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
