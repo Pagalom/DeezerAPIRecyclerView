@@ -27,14 +27,15 @@
         android:layout_alignLeft="@+id/firstLine"
         android:layout_alignEnd="@+id/firstLine"
         android:layout_alignRight="@+id/firstLine"
-        android:layout_marginStart="-1dp"
-        android:layout_marginLeft="-1dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginRight="0dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="-1dp"
+        android:layout_marginRight="-1dp"
         android:ellipsize="marquee"
         android:singleLine="true"
         android:text="@string/description"
+        android:textColor="@color/white"
         android:textSize="12sp" />
 
     <TextView
@@ -47,14 +48,15 @@
         android:layout_alignRight="@+id/icon2"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="-141dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="-132dp"
         android:layout_marginEnd="5dp"
         android:layout_marginRight="5dp"
         android:gravity="center_vertical"
         android:text="TITRE"
         android:textAlignment="center"
+        android:textColor="@color/white"
         android:textSize="16sp" />
 
 </RelativeLayout>

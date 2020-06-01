@@ -3,7 +3,10 @@ package com.example.deezerapirecyclerview;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.icu.text.CaseMap;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,6 +36,7 @@ public class MainPlaylist extends AppCompatActivity {
     private String id;
     private String titre;
     private TextView pTitre;
+    private ImageButton retour;
 
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
@@ -46,13 +50,20 @@ public class MainPlaylist extends AppCompatActivity {
         Intent intent = getIntent();
         this.titre = intent.getStringExtra("Titre");
         this.id = intent.getStringExtra("Id");
+        Log.i("MyLog","Id : "+id+"Title : "+ titre);
         pTitre = (TextView) findViewById(R.id.txtView);
         pTitre.setText(titre);
+        retour = (ImageButton) findViewById((R.id.returnButton));
 
         sharedPreferences = getSharedPreferences("AppDeezer", Context.MODE_PRIVATE);
         gson = new GsonBuilder()
                 .setLenient()
                 .create();
+
+        retour.setOnClickListener(e->{
+            finish();
+            makeAPICall();
+        });
 
         makeAPICall();
     }
@@ -70,6 +81,7 @@ public class MainPlaylist extends AppCompatActivity {
             @Override
             public void onResponse(Call<PlaylistWMusic> call, Response<PlaylistWMusic> response) {
                 if(response.isSuccessful() && response.body()!=null){
+                    Log.i("MyLog","myURL"+response.body());
                     List<Music> listMusic= response.body().getData();
                     saveList(listMusic);
                     showList(listMusic);
@@ -93,9 +105,9 @@ public class MainPlaylist extends AppCompatActivity {
         layoutManager = new GridLayoutManager(this,3);
         recyclerView.setLayoutManager(layoutManager);
 
-        mAdapter = new ListAdapterPlaylist(listMusic, new ListAdapter.OnItemClickListener() {
+        mAdapter = new ListAdapterPlaylist(listMusic, new ListAdapterPlaylist.OnItemClickListener() {
             @Override
-            public void onItemClick(Playlist item) {
+            public void onItemClick(Music item) {
 
             }
         });

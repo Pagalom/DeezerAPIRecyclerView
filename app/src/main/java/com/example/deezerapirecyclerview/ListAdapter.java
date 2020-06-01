@@ -2,6 +2,7 @@ package com.example.deezerapirecyclerview;
 
 import java.util.List;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -88,7 +89,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
             }
         });
 
-        holder.txtFooter.setText(currentPlaylist.getLink());
+        holder.txtFooter.setText("nombre morceaux : "+currentPlaylist.getNb_tracks()+" / durée : "+currentPlaylist.getDuration());
     }
 
     // Return the size of your dataset (invoked by the layout manager)

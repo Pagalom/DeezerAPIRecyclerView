@@ -4,10 +4,12 @@ import java.util.List;
 
 import android.graphics.Color;
 import android.graphics.PorterDuff;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.squareup.picasso.Picasso;
 
 public class ListAdapterPlaylist extends RecyclerView.Adapter<ListAdapterPlaylist.ViewHolder> {
+    private OnItemClickListener listener;
     private List<Music> values;
 
     // Provide a reference to the views for each data item
@@ -49,8 +52,9 @@ public class ListAdapterPlaylist extends RecyclerView.Adapter<ListAdapterPlaylis
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public ListAdapterPlaylist(List<Music> myDataset, ListAdapter.OnItemClickListener onItemClickListener) {
+    public ListAdapterPlaylist(List<Music> myDataset, OnItemClickListener listener) {
         values = myDataset;
+        this.listener = listener;
     }
 
     // Create new views (invoked by the layout manager)
@@ -66,6 +70,9 @@ public class ListAdapterPlaylist extends RecyclerView.Adapter<ListAdapterPlaylis
         ViewHolder vh = new ViewHolder(v);
         return vh;
     }
+    public interface OnItemClickListener {
+        void onItemClick(Music item);
+    }
 
     // Replace the contents of a view (invoked by the layout manager)
     @Override
@@ -73,6 +80,7 @@ public class ListAdapterPlaylist extends RecyclerView.Adapter<ListAdapterPlaylis
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
         final Music currentMusic = values.get(position);
+        //Log.i("MyLog",currentMusic.getTitle()+"/"+currentMusic.getId());
         holder.txtHeader.setText(currentMusic.getTitle());
         Picasso.get().load(currentMusic.getAlbum().getCover()).into(holder.img);
         holder.txtHeader.setOnClickListener(new OnClickListener() {
