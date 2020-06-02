@@ -114,6 +114,15 @@ public class MainPlaylist extends AppCompatActivity {
         recyclerView.setAdapter(mAdapter);
     }
 
+    /*public void navigateToPlaylist(Music item){
+        Intent intent = new Intent(getApplicationContext(),MainPlaylist.class);
+        intent.putExtra("Titre",item.getTitle());
+        intent.putExtra("Id",item.getId());
+        Log.i("MyLog","id :" + item.getId()+"/Titre : "+item.getTitle());
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        getApplicationContext().startActivity(intent);
+    }*/
+
     private void saveList(List<Music> listMusic) {
         String jsonString = gson.toJson(listMusic);
         sharedPreferences

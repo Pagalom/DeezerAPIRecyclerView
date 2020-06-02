@@ -86,7 +86,7 @@ public class ListAdapterPlaylist extends RecyclerView.Adapter<ListAdapterPlaylis
         holder.txtHeader.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                remove(position);
+                listener.onItemClick(currentMusic);
             }
         });
 
