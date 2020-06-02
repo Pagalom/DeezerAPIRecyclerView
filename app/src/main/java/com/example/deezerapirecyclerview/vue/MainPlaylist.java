@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.deezerapirecyclerview.modele.DeezerAPI;
-import com.example.deezerapirecyclerview.modele.ListAdapterPlaylist;
 import com.example.deezerapirecyclerview.R;
 import com.example.deezerapirecyclerview.controller.Constante;
 import com.example.deezerapirecyclerview.modele.Music;

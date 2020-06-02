@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.deezerapirecyclerview.modele.DeezerAPI;
-import com.example.deezerapirecyclerview.modele.ListAdapter;
 import com.example.deezerapirecyclerview.controller.ListPlaylist;
 import com.example.deezerapirecyclerview.R;
 import com.example.deezerapirecyclerview.controller.Constante;
