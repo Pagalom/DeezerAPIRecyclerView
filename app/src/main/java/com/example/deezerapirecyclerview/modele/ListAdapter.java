@@ -1,8 +1,7 @@
-package com.example.deezerapirecyclerview;
+package com.example.deezerapirecyclerview.modele;
 
 import java.util.List;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -12,6 +11,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.deezerapirecyclerview.R;
 import com.squareup.picasso.Picasso;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {

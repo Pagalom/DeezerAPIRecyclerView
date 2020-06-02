@@ -1,20 +1,23 @@
-package com.example.deezerapirecyclerview;
+package com.example.deezerapirecyclerview.vue;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.icu.text.CaseMap;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.deezerapirecyclerview.modele.DeezerAPI;
+import com.example.deezerapirecyclerview.modele.ListAdapterPlaylist;
+import com.example.deezerapirecyclerview.R;
+import com.example.deezerapirecyclerview.controller.Constante;
+import com.example.deezerapirecyclerview.modele.Music;
+import com.example.deezerapirecyclerview.modele.PlaylistWMusic;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -108,20 +111,22 @@ public class MainPlaylist extends AppCompatActivity {
         mAdapter = new ListAdapterPlaylist(listMusic, new ListAdapterPlaylist.OnItemClickListener() {
             @Override
             public void onItemClick(Music item) {
-
+                navigateToMusic(item);
             }
         });
         recyclerView.setAdapter(mAdapter);
     }
 
-    /*public void navigateToPlaylist(Music item){
-        Intent intent = new Intent(getApplicationContext(),MainPlaylist.class);
+    public void navigateToMusic(Music item){
+        Intent intent = new Intent(getApplicationContext(),MainMusic.class);
         intent.putExtra("Titre",item.getTitle());
-        intent.putExtra("Id",item.getId());
-        Log.i("MyLog","id :" + item.getId()+"/Titre : "+item.getTitle());
+        intent.putExtra("Album", item.getAlbumString());
+        intent.putExtra("Artist", item.getArtistString());
+        intent.putExtra("Duration", item.getDuration()+"");
+        intent.putExtra("Image", item.getAlbum().getCover());
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         getApplicationContext().startActivity(intent);
-    }*/
+    }
 
     private void saveList(List<Music> listMusic) {
         String jsonString = gson.toJson(listMusic);

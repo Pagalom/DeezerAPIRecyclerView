@@ -1,4 +1,6 @@
-package com.example.deezerapirecyclerview;
+package com.example.deezerapirecyclerview.controller;
+
+import com.example.deezerapirecyclerview.modele.Playlist;
 
 import java.util.List;
 

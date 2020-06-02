@@ -1,7 +1,4 @@
-package com.example.deezerapirecyclerview;
-
-import java.util.ArrayList;
-import java.util.List;
+package com.example.deezerapirecyclerview.modele;
 
 public class Playlist {
     private int duration,nb_tracks;

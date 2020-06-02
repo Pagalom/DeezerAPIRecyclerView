@@ -1,4 +1,4 @@
-package com.example.deezerapirecyclerview;
+package com.example.deezerapirecyclerview.modele;
 
 public class Utilisateur {
     private String id,name,tracklist,type;

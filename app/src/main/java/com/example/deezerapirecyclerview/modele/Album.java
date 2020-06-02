@@ -1,4 +1,4 @@
-package com.example.deezerapirecyclerview;
+package com.example.deezerapirecyclerview.modele;
 
 public class Album {
     private int id;

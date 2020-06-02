@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DeezerAPIRecyclerView">
         <activity
-            android:name=".MainActivity"
+            android:name=".vue.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.DeezerAPIRecyclerView.NoActionBar">
             <intent-filter>
@@ -21,7 +21,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainPlaylist"/>
+        <activity android:name=".vue.MainPlaylist"/>
+        <activity android:name=".vue.MainMusic"/>
 
     </application>
 

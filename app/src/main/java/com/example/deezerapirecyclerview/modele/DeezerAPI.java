@@ -1,4 +1,6 @@
-package com.example.deezerapirecyclerview;
+package com.example.deezerapirecyclerview.modele;
+
+import com.example.deezerapirecyclerview.controller.ListPlaylist;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
