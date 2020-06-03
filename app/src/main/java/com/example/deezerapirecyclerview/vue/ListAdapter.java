@@ -90,7 +90,10 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
             }
         });
 
-        holder.txtFooter.setText("nombre morceaux : "+currentPlaylist.getNb_tracks()+" / durée : "+currentPlaylist.getDuration());
+        int hTime = currentPlaylist.getDuration()/3600;
+        int mTime = (currentPlaylist.getDuration()-(hTime*3600))/60;
+        int sTime = (currentPlaylist.getDuration()-(hTime*3600 + mTime*60));
+        holder.txtFooter.setText("nombre morceaux : "+currentPlaylist.getNb_tracks()+" / durée : "+(hTime>0?(hTime+":"):"")+(mTime>0?(mTime+":"):"")+sTime);
     }
 
     // Return the size of your dataset (invoked by the layout manager)
